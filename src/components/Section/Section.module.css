@@ -1,0 +1,7 @@
+.container {
+  background-image: url(../img/heroes.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
