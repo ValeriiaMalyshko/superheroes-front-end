@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  font-family: 'Abril Fatface';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.11;
+  background-color: black;
+}
+.link {
+  color: white;
+}
+
+.active_link {
+  color: red;
+}

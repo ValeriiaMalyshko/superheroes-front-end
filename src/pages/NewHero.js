@@ -1,5 +1,5 @@
-import AddNewHero from 'components/AddNewHero'
+import FormHero from 'components/Form/Form'
 
 export default function NewHero(params) {
-  return <AddNewHero />
+  return <FormHero />
 }

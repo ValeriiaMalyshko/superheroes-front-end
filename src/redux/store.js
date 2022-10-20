@@ -1,16 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { heroApi } from './hero-reducer'
 import { setupListeners } from '@reduxjs/toolkit/query'
+import { heroApi } from './hero-reducer'
 
 export const store = configureStore({
   reducer: {
     [heroApi.reducerPath]: heroApi.reducer,
   },
-  middleware: getDefaultMiddleware => [
-    ...getDefaultMiddleware(),
-    heroApi.middleware,
-  ],
-  devTools: process.env.NODE_ENV === 'development',
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(heroApi.middleware),
 })
 
 setupListeners(store.dispatch)

@@ -1,33 +1,29 @@
+// import React from 'react'
 import React, { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Navigation from 'components/Navigation'
-import Loader from 'components/Loader'
+import Navigation from './components/Navigation/Navigation'
+// import FormHero from 'components/Form/Form'
 import 'modern-normalize/modern-normalize.css'
-import './App.css'
 import './index.css'
 
-const Superheroes = lazy(() =>
-  import('pages/Superheroes' /* webpackChunkName: "superheroes-page" */),
-)
-const NewHero = lazy(() =>
-  import('pages/NewHero' /* webpackChunkName: "newhero-page" */),
-)
+const Home = lazy(() => import('pages/Home'))
+const NewHero = lazy(() => import('pages/NewHero'))
 
-const HeroDetail = lazy(() =>
-  import('components/HeroDetail' /* webpackChunkName: "herodetail-page" */),
-)
-const EditHero = lazy(() =>
-  import('components/EditHero' /* webpackChunkName: "edithero-page" */),
-)
+// const HeroDetail = lazy(() =>
+//   import('components/HeroDetail' /* webpackChunkName: "herodetail-page" */),
+// )
+// const EditHero = lazy(() =>
+//   import('components/EditHero' /* webpackChunkName: "edithero-page" */),
+// )
 
 export default function App() {
   return (
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<h3>...Loading</h3>}>
       <Routes>
         <Route path="/" element={<Navigation />}>
-          <Route index element={<Superheroes />} />
-          <Route path=":slug" element={<HeroDetail />} />
-          <Route path="edit:heroId" element={<EditHero />} />
+          <Route index element={<Home />} />
+          {/* <Route path=":slug" element={<HeroDetail />} />
+          <Route path="edit:heroId" element={<EditHero />} /> */}
           <Route path="new-hero" element={<NewHero />} />
         </Route>
       </Routes>

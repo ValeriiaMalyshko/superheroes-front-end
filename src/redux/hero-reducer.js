@@ -1,10 +1,9 @@
-// import { createReducer } from '@reduxjs/toolkit'
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const heroApi = createApi({
-  reducerPath: 'heroes',
+  reducerPath: 'heroApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://super-heroes-nuvem.herokuapp.com/api',
+    baseUrl: 'https://superheroes-ap.herokuapp.com/api',
   }),
   tagTypes: ['Hero'],
   endpoints: builder => ({
@@ -12,13 +11,6 @@ export const heroApi = createApi({
       query: (page = 1) => `/heroes?page=${page}`,
       providesTags: ['Hero'],
       keepUnusedDataFor: 5,
-    }),
-    findHero: builder.query({
-      query: heroId => ({
-        url: `/heroes/${heroId}`,
-        providesTags: ['Hero'],
-        keepUnusedDataFor: 5,
-      }),
     }),
     deleteHero: builder.mutation({
       query: heroId => ({
@@ -44,12 +36,11 @@ export const heroApi = createApi({
       invalidatesTags: ['Hero'],
     }),
   }),
-})
+});
 
 export const {
   useFetchHeroesQuery,
-  useFindHeroQuery,
-  useDeleteHeroMutation,
   useAddHeroMutation,
+  useDeleteHeroMutation,
   useUpdateHeroMutation,
-} = heroApi
+} = heroApi;

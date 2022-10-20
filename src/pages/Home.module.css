@@ -1,0 +1,10 @@
+.title {
+  text-align: center;
+  margin-top: 420px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 200px;
+  line-height: 1.25;
+  color: red;
+  -webkit-text-stroke: black;
+}
