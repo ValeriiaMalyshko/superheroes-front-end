@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { nanoid } from 'nanoid';
-// import React, { Component } from 'react';
+// import React, { useState } from 'react';
+// import { nanoid } from 'nanoid';
+import React from 'react';
 // import PropTypes from 'prop-types';
 import s from './Form.module.css';
 // import { connect } from 'react-redux';
@@ -59,6 +59,7 @@ const FormHero = () => {
           Nickname
         </InputGroup.Text>
         <Form.Control
+          className={s.input}
           aria-label="nickname"
           aria-describedby="inputGroup-sizing-default"
         />
@@ -69,6 +70,7 @@ const FormHero = () => {
           Real name
         </InputGroup.Text>
         <Form.Control
+          className={s.input}
           aria-label="real_name"
           aria-describedby="inputGroup-sizing-default"
         />
@@ -79,6 +81,7 @@ const FormHero = () => {
           Origin description
         </InputGroup.Text>
         <Form.Control
+          className={s.input}
           aria-label="origin_description"
           aria-describedby="inputGroup-sizing-default"
         />
@@ -89,6 +92,7 @@ const FormHero = () => {
           Superpowers
         </InputGroup.Text>
         <Form.Control
+          className={s.input}
           aria-label="superpowers"
           aria-describedby="inputGroup-sizing-default"
         />
@@ -99,6 +103,7 @@ const FormHero = () => {
           Catch phrase
         </InputGroup.Text>
         <Form.Control
+          className={s.input}
           aria-label="catch_phrase"
           aria-describedby="inputGroup-sizing-default"
         />
@@ -106,7 +111,7 @@ const FormHero = () => {
       <br />
       <Form.Group controlId="formFile" className="mb-3">
         <Form.Label className={s.label}>Images</Form.Label>
-        <Form.Control type="file" />
+        <Form.Control type="file" className={s.input} />
       </Form.Group>
       <Button size="lg" type="submit" className={s.btn}>
         Create superhero
