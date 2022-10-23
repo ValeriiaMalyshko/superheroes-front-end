@@ -13,7 +13,7 @@ function Navigation() {
           Home
         </NavLink>
         <NavLink
-          // href="heroes-colection"
+          to="heroes"
           className={({ isActive }) => (isActive ? s.active_link : s.link)}
         >
           Information about superhero

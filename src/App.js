@@ -9,9 +9,7 @@ import './index.css'
 const Home = lazy(() => import('pages/Home'))
 const NewHero = lazy(() => import('pages/NewHero'))
 
-// const HeroDetail = lazy(() =>
-//   import('components/HeroDetail' /* webpackChunkName: "herodetail-page" */),
-// )
+const Heroes = lazy(() => import('pages/Heroes'))
 // const EditHero = lazy(() =>
 //   import('components/EditHero' /* webpackChunkName: "edithero-page" */),
 // )
@@ -22,8 +20,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
-          {/* <Route path=":slug" element={<HeroDetail />} />
-          <Route path="edit:heroId" element={<EditHero />} /> */}
+          <Route path="heroes" element={<Heroes />} />
+          {/* <Route path="edit:heroId" element={<EditHero />} />  */}
           <Route path="new-hero" element={<NewHero />} />
         </Route>
       </Routes>

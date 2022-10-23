@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const heroApi = createApi({
   reducerPath: 'heroApi',
@@ -11,6 +11,13 @@ export const heroApi = createApi({
       query: (page = 1) => `/heroes?page=${page}`,
       providesTags: ['Hero'],
       keepUnusedDataFor: 5,
+    }),
+    findHero: builder.query({
+      query: heroId => ({
+        url: `/heroes/${heroId}`,
+        providesTags: ['Hero'],
+        keepUnusedDataFor: 5,
+      }),
     }),
     deleteHero: builder.mutation({
       query: heroId => ({
@@ -36,11 +43,12 @@ export const heroApi = createApi({
       invalidatesTags: ['Hero'],
     }),
   }),
-});
+})
 
 export const {
   useFetchHeroesQuery,
+  useFindHeroQuery,
   useAddHeroMutation,
   useDeleteHeroMutation,
   useUpdateHeroMutation,
-} = heroApi;
+} = heroApi
