@@ -4,14 +4,14 @@ import React from 'react'
 // import PropTypes from 'prop-types';
 import s from './Form.module.css'
 // import { connect } from 'react-redux';
-import { useAddHeroMutation, useFetchHeroesQuery } from 'redux/hero-reducer'
+import { useAddHeroMutation } from 'redux/hero-reducer'
 import { Form, InputGroup, Button } from 'react-bootstrap'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { Notify } from 'notiflix/build/notiflix-notify-aio'
 
 const FormHero = () => {
-  const [addHero] = useAddHeroMutation()
+  const [addHero, { isLoading: isAdding }, error] = useAddHeroMutation()
   const formik = useFormik({
     initialValues: {
       nickname: '',
@@ -32,14 +32,16 @@ const FormHero = () => {
         .required('Required'),
       origin_description: Yup.string()
         .min(1, 'Too Short!')
-        .max(600, 'Too Long!Must be 600 symbols!'),
+        .max(600, 'Too Long!Must be 600 symbols!')
+        .required('Required'),
       superpowers: Yup.string()
         .min(1, 'Too Short!')
         .max(400, 'Too Long! Must be 400 symbols!')
         .required('Required'),
       catch_phrase: Yup.string()
         .min(1, 'Too Short!')
-        .max(200, 'Too Long! Must be 200 symbols!'),
+        .max(200, 'Too Long! Must be 200 symbols!')
+        .required('Required'),
       images: Yup.string(),
     }),
     onSubmit: async (
@@ -192,7 +194,7 @@ const FormHero = () => {
           <div className={s.message}>{formik.errors.images}</div>
         ) : null}
       </InputGroup>
-      <Button size="lg" type="submit" className={s.btn}>
+      <Button size="lg" type="submit" className={s.btn} disabled={isAdding}>
         Create superhero
       </Button>
     </Form>

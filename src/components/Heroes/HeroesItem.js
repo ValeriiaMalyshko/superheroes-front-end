@@ -40,6 +40,7 @@ const HeroItem = ({ hero }) => {
         origin_description={origin_description}
         superpowers={superpowers}
         catch_phrase={catch_phrase}
+        heroId={_id}
         show={show}
         setShow={() => setShow(false)}
       />
@@ -48,7 +49,6 @@ const HeroItem = ({ hero }) => {
 }
 
 HeroItem.propTypes = {
-  _id: PropTypes.string,
   nickname: PropTypes.string,
   images: PropTypes.string,
 }

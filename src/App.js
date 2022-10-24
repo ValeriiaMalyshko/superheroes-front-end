@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation/Navigation'
 // import FormHero from 'components/Form/Form'
 import 'modern-normalize/modern-normalize.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css'
 
 const Home = lazy(() => import('pages/Home'))

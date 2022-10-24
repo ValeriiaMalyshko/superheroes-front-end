@@ -11,7 +11,7 @@ import { createPortal } from 'react-dom'
 const modalRoot = document.querySelector('#modal__root')
 
 const HeroModal = ({
-  _id,
+  heroId,
   images,
   nickname,
   real_name,
@@ -40,36 +40,38 @@ const HeroModal = ({
         </Modal.Header>
         <Modal.Body div className={s.contain}>
           <img src={images} alt={nickname} className={s.image} />
-          <p className={s.item}>
+          <p className={s.part}>
             <span className={s.title}>Real name</span>:{real_name}
           </p>
-          <p className={s.item}>
+          <p className={s.part}>
             <span className={s.title}>Description</span>:{origin_description}
           </p>
-          <p className={s.item}>
+          <p className={s.part}>
             <span className={s.title}>Superpowers</span>:{superpowers}
           </p>
-          <p className={s.item}>
+          <p className={s.part}>
             <span className={s.title}>Catch phrase</span>:{catch_phrase}
           </p>
-          <Button
-            variant="primary"
-            id={_id}
-            onClick={() => deleteHero(_id)}
-            disabled={isDeleting}
-            className={s.btn}
-          >
-            Edit
-          </Button>
-          <Button
-            id={_id}
-            variant="primary"
-            onClick={() => updateHero(_id)}
-            disabled={isUpdeting}
-            className={s.btn}
-          >
-            Delete
-          </Button>
+          <div className={s.btnGroup}>
+            <Button
+              variant="primary"
+              id={heroId}
+              onClick={() => deleteHero(heroId)}
+              disabled={isDeleting}
+              className={s.btn}
+            >
+              Edit
+            </Button>
+            <Button
+              id={heroId}
+              variant="primary"
+              onClick={() => updateHero(heroId)}
+              disabled={isUpdeting}
+              className={s.btn}
+            >
+              Delete
+            </Button>
+          </div>
         </Modal.Body>
       </div>
     </Modal>,
@@ -77,7 +79,6 @@ const HeroModal = ({
   )
 }
 HeroModal.propTypes = {
-  _id: PropTypes.string,
   nickname: PropTypes.string,
   real_name: PropTypes.string,
   origin_description: PropTypes.string,

@@ -1,6 +1,6 @@
 .container {
   display: block;
-  width: 400px;
+  width: 600px;
   padding: 20px 60px 20px 60px;
   margin-left: auto;
   margin-right: auto;
@@ -14,8 +14,8 @@
 }
 
 .label {
-  display: block;
-  margin-bottom: 10px;
+  display: inline-block;
+  /* margin-bottom: 10px; */
 }
 
 .input {
@@ -25,6 +25,12 @@
   margin: 0;
   width: 100%;
   background-color: rgba(110, 198, 245, 0.989);
+}
+.message {
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 5px;
 }
 
 .btn {

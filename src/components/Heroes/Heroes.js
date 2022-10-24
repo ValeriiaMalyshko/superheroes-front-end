@@ -41,7 +41,7 @@ const Heroes = () => {
             ))}
           </ul>
           <>
-            <div>Page: {heroes.page}</div>
+            {/* <div>Page: {heroes.page}</div> */}
             <TablePagination
               style={{
                 display: 'flex',
@@ -50,11 +50,11 @@ const Heroes = () => {
                 marginLeft: '15px',
               }}
               component="div"
-              rowsPerPageOptions={[5]}
               count={heroes.length}
-              rowsPerPage={rowsPerPage}
               page={paginationPage}
               onPageChange={handleChangePage}
+              rowsPerPageOptions={[5]}
+              rowsPerPage={rowsPerPage}
               onRowsPerPageChange={handleChangeRowsPerPage}
             />
           </>
