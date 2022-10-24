@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import TablePagination from '@mui/material/TablePagination'
 import { useFetchHeroesQuery } from 'redux/hero-reducer'
 import HeroItem from './HeroesItem'
+import s from './Heroes.module.css'
 
 const Heroes = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const [paginationPage, setPaginationPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(5)
-  const { data: hero, isLoading } = useFetchHeroesQuery(currentPage)
+  const { data: heroes, isLoading } = useFetchHeroesQuery(currentPage)
 
   const handleChangePage = (e, newPage) => {
     setPaginationPage(newPage)
@@ -29,37 +30,18 @@ const Heroes = () => {
       })
     }, 500)
   }
-
   return (
     <>
       {isLoading && <div>...Loading</div>}
-      {hero && hero.data.length > 0 ? (
-        <div>
-          <ul>
-            {hero.data.map(
-              ({
-                _id,
-                nickname,
-                real_name,
-                origin_description,
-                superpowers,
-                catch_phrase,
-                images,
-              }) => (
-                <HeroItem
-                  id={_id}
-                  nickname={nickname}
-                  real_name={real_name}
-                  origin_description={origin_description}
-                  superpowers={superpowers}
-                  catch_phrase={catch_phrase}
-                  images={images}
-                />
-              ),
-            )}
+      {heroes && heroes.length > 0 ? (
+        <div className={s.container}>
+          <ul className={s.collection}>
+            {heroes.map(hero => (
+              <HeroItem key={hero._id} hero={hero} />
+            ))}
           </ul>
-          <PaginationWrap>
-            <div>Page: {hero.page}</div>
+          <>
+            <div>Page: {heroes.page}</div>
             <TablePagination
               style={{
                 display: 'flex',
@@ -69,13 +51,13 @@ const Heroes = () => {
               }}
               component="div"
               rowsPerPageOptions={[5]}
-              count={hero.totalCount}
+              count={heroes.length}
               rowsPerPage={rowsPerPage}
               page={paginationPage}
               onPageChange={handleChangePage}
               onRowsPerPageChange={handleChangeRowsPerPage}
             />
-          </PaginationWrap>
+          </>
         </div>
       ) : (
         <div>Sorry, the list of heroes is empty. Add new hero</div>

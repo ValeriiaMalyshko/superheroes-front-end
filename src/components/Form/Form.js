@@ -173,19 +173,25 @@ const FormHero = () => {
         ) : null}
       </InputGroup>
       <br />
-      <Form.Group controlId="formFile" className="mb-3">
-        <Form.Label className={s.label}>Images</Form.Label>
+      <InputGroup className="mb-3">
+        <InputGroup.Text id="inputGroup-sizing-default" className={s.label}>
+          Images
+        </InputGroup.Text>
         <Form.Control
+          id="images"
           name="images"
+          type="text"
+          placeholder="the image must be a url link"
           onChange={formik.handleChange}
           value={formik.values.images}
-          type="file"
           className={s.input}
+          aria-label="images"
+          aria-describedby="inputGroup-sizing-default"
         />
         {formik.errors.images && formik.touched.images ? (
           <div className={s.message}>{formik.errors.images}</div>
         ) : null}
-      </Form.Group>
+      </InputGroup>
       <Button size="lg" type="submit" className={s.btn}>
         Create superhero
       </Button>

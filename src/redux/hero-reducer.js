@@ -3,20 +3,18 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const heroApi = createApi({
   reducerPath: 'heroApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://superheroes-ap.herokuapp.com/api',
+    baseUrl: 'http://localhost:3001/api',
   }),
   tagTypes: ['Hero'],
   endpoints: builder => ({
     fetchHeroes: builder.query({
-      query: (page = 1) => `/heroes?page=${page}`,
+      query: () => `/heroes?page=1&limit=5`,
       providesTags: ['Hero'],
-      keepUnusedDataFor: 5,
     }),
     findHero: builder.query({
       query: heroId => ({
         url: `/heroes/${heroId}`,
         providesTags: ['Hero'],
-        keepUnusedDataFor: 5,
       }),
     }),
     deleteHero: builder.mutation({
