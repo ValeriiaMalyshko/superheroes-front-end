@@ -15,6 +15,7 @@ const HeroItem = ({ hero }) => {
     catch_phrase,
   } = hero
   const [show, setShow] = useState(false)
+
   return (
     <>
       <li className={s.item}>

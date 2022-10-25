@@ -1,9 +1,5 @@
-// import React, { useState } from 'react';
-// import { nanoid } from 'nanoid';
 import React from 'react'
-// import PropTypes from 'prop-types';
 import s from './Form.module.css'
-// import { connect } from 'react-redux';
 import { useAddHeroMutation } from 'redux/hero-reducer'
 import { Form, InputGroup, Button } from 'react-bootstrap'
 import { useFormik } from 'formik'
@@ -11,7 +7,7 @@ import * as Yup from 'yup'
 import { Notify } from 'notiflix/build/notiflix-notify-aio'
 
 const FormHero = () => {
-  const [addHero, { isLoading: isAdding }, error] = useAddHeroMutation()
+  const [addHero, { isLoading: isAdding }] = useAddHeroMutation()
   const formik = useFormik({
     initialValues: {
       nickname: '',

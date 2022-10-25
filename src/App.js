@@ -11,9 +11,7 @@ const Home = lazy(() => import('pages/Home'))
 const NewHero = lazy(() => import('pages/NewHero'))
 
 const Heroes = lazy(() => import('pages/Heroes'))
-// const EditHero = lazy(() =>
-//   import('components/EditHero' /* webpackChunkName: "edithero-page" */),
-// )
+// const EditHero = lazy(() => import('components/Form/EditForm'))
 
 export default function App() {
   return (
@@ -22,7 +20,7 @@ export default function App() {
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
           <Route path="heroes" element={<Heroes />} />
-          {/* <Route path="edit:heroId" element={<EditHero />} />  */}
+          {/* <Route path="edit:heroId" element={<EditHero />} /> */}
           <Route path="new-hero" element={<NewHero />} />
         </Route>
       </Routes>

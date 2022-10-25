@@ -40,24 +40,21 @@ const Heroes = () => {
               <HeroItem key={hero._id} hero={hero} />
             ))}
           </ul>
-          <>
-            {/* <div>Page: {heroes.page}</div> */}
-            <TablePagination
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                color: 'white',
-                marginLeft: '15px',
-              }}
-              component="div"
-              count={heroes.length}
-              page={paginationPage}
-              onPageChange={handleChangePage}
-              rowsPerPageOptions={[5]}
-              rowsPerPage={rowsPerPage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-          </>
+          <TablePagination
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              color: 'white',
+              marginLeft: '15px',
+            }}
+            component="div"
+            rowsPerPageOptions={[5]}
+            count={heroes.length}
+            rowsPerPage={rowsPerPage}
+            page={paginationPage}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
         </div>
       ) : (
         <div>Sorry, the list of heroes is empty. Add new hero</div>
