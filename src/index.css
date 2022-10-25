@@ -4,9 +4,9 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.4;
-  color: #777;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* color: #777; */
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
   height: 100vh;
   background-repeat: no-repeat;
   background-image: url(./img/marvel-heroes.jpg);
@@ -15,7 +15,32 @@ body {
   object-fit: fill;
   background-attachment: fixed;
 }
-
+@media screen and (min-width: 1200px) {
+  .body {
+    max-width: 1200px;
+  }
+  .modal-dialog {
+    max-width: 800px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .body {
+    max-width: 1199px;
+  }
+  .modal-dialog {
+    max-width: 600px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .body {
+    max-width: 767px;
+  }
+  .modal-dialog {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -3,8 +3,24 @@
   margin-top: 420px;
   font-style: normal;
   font-weight: 900;
-  font-size: 200px;
-  line-height: 1.25;
   color: red;
   -webkit-text-stroke: black;
+}
+@media screen and (min-width: 1200px) {
+  .title {
+    font-size: 180px;
+    line-height: 1.25;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .title {
+    font-size: 120px;
+    line-height: 1.25;
+  }
+}
+@media screen and (max-width: 767px) {
+  .title {
+    font-size: 60px;
+    line-height: 1.25;
+  }
 }

@@ -3,6 +3,7 @@ import TablePagination from '@mui/material/TablePagination'
 import { useFetchHeroesQuery } from 'redux/hero-reducer'
 import HeroItem from './HeroesItem'
 import s from './Heroes.module.css'
+import { SpinnerCircular } from 'spinners-react'
 
 const Heroes = () => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -32,7 +33,7 @@ const Heroes = () => {
   }
   return (
     <>
-      {isLoading && <div>...Loading</div>}
+      {isLoading && <SpinnerCircular className={s.spinner} />}
       {heroes && heroes.length > 0 ? (
         <div className={s.container}>
           <ul className={s.collection}>
@@ -57,7 +58,9 @@ const Heroes = () => {
           />
         </div>
       ) : (
-        <div>Sorry, the list of heroes is empty. Add new hero</div>
+        <div className={s.message}>
+          Sorry, the list of heroes is empty. Add new hero
+        </div>
       )}
     </>
   )

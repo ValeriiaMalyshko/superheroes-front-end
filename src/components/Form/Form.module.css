@@ -1,6 +1,5 @@
 .container {
   display: block;
-  width: 600px;
   padding: 20px 60px 20px 60px;
   margin-left: auto;
   margin-right: auto;
@@ -11,6 +10,43 @@
   line-height: 1.11;
   color: black;
   margin-top: 40px;
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 800px;
+  }
+  .containerEdit {
+    width: 100%;
+    padding: 0;
+  }
+  .modal {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .container {
+    width: 600px;
+  }
+  .containerEdit {
+    width: 100%;
+    padding: 0;
+  }
+  .modal {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .container {
+    width: 400px;
+  }
+  .containerEdit {
+    width: 100%;
+    padding: 0;
+  }
+  .modal {
+    width: 100%;
+  }
 }
 
 .label {
@@ -51,23 +87,13 @@
   background-color: white;
 }
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: rgba(180, 223, 247, 0.5);
-  z-index: 1200;
 }
 
 .modal {
   position: relative;
   border-radius: 4px;
   background: rgb(180, 223, 247);
-  width: 800px;
   height: 800px;
   padding: 20px;
   margin-left: auto;

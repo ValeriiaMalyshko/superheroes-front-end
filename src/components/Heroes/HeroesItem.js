@@ -22,7 +22,7 @@ const HeroItem = ({ hero }) => {
         <Card>
           <Card.Img variant="top" src={images} className={s.image} />
           <Card.Body>
-            <Card.Title>{nickname}</Card.Title>
+            <Card.Title className={s.cardTitle}>{nickname}</Card.Title>
             <Button
               id={_id}
               variant="primary"

@@ -73,7 +73,7 @@ const EditForm = ({
       <div className={s.modal}>
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
-          <Form onSubmit={formik.handleSubmit}>
+          <Form onSubmit={formik.handleSubmit} className={s.containerEdit}>
             <InputGroup className="mb-3">
               <InputGroup.Text
                 id="inputGroup-sizing-default"
