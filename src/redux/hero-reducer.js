@@ -8,7 +8,7 @@ export const heroApi = createApi({
   tagTypes: ['Hero'],
   endpoints: builder => ({
     fetchHeroes: builder.query({
-      query: () => `/heroes?page=1&limit=5`,
+      query: (page = 1) => `/heroes?page=${page}&limit=5`,
       providesTags: ['Hero'],
     }),
     findHero: builder.query({

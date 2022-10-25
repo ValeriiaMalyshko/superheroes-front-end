@@ -55,8 +55,10 @@ const EditForm = ({
       images: Yup.string(),
     }),
     onSubmit: async ({ values }) => {
-      await updateHero({ heroId, ...values })
-      console.log(updateHero)
+      await updateHero({
+        heroId,
+        ...values,
+      })
       console.log(heroId)
     },
   })
